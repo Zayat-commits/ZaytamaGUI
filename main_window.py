@@ -1,14 +1,8 @@
-import sys
-from subprocess import call
-
-# Call preprocess.py before running main application
-call([sys.executable, 'preprocess.py'])
-
-import sys
-import os
 from PyQt6.QtWidgets import QApplication, QLabel, QMainWindow, QGraphicsDropShadowEffect, QScrollBar
 from PyQt6.QtGui import QPixmap
 from PyQt6.QtCore import Qt
+import os
+import sys
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -97,7 +91,9 @@ class MainWindow(QMainWindow):
         self.scroll_bar.setGeometry(100, self.height() - 70, 1080, 30)  # Scroll bar adjustment
         super().resizeEvent(event)
 
-app = QApplication(sys.argv)
-window = MainWindow()
-window.show()
-sys.exit(app.exec())
+# Start the application
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    window = MainWindow()
+    window.show()
+    sys.exit(app.exec())
